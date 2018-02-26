@@ -7,12 +7,12 @@
         <div>
           <% if(artist.images.length > 0) { %>
             <img class="" src="<%= artist.images[0].url %>" alt="<%= artist.name %>">
-          <% } else {%>
+          <% } else { %>
             <img class="" src="/images/blankrecord.jpg" alt="<%= artist.name %>">
           <% } %>
           <div class="">
             <h2> <%= artist.name %> </h2>
-            <p> <a href="/albums/<% artist.id %>" class="">Ver albumes</a></p>
+            <p> <a href="/albums/<%= artist.id %>" class="">Ver albumes</a></p>
           </div>
         </div>
       </div>

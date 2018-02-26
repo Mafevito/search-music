@@ -14,7 +14,7 @@ app.listen(3000, () => {
   console.log('My first app listening on port 3000!');
 });
 
-// Remember to paste here your credentials
+// SpotifyApi
 var clientId = 'ecb2b00819464137a16cfb7f9a88624c',
     clientSecret = 'e6627ac1e1e240089f4cce056e0fb2bd';
 
@@ -31,11 +31,12 @@ spotifyApi.clientCredentialsGrant()
     console.log('Something went wrong when retrieving an access token', err);
 });
 
-// index
+// Index
 app.get('/', (req, res, next) => {
   res.render('home');
 });
 
+// Obtener a un artista individual
 app.post('/artists', (req, res, next) => {
   spotifyApi.searchArtists(req.body.artist)
   .then(function(data) {
@@ -45,6 +46,17 @@ app.post('/artists', (req, res, next) => {
   });
 });
 
+// Obtener el album de un determinado artista
 app.get('/albums/:artistId', (req, res) => {
+  spotifyApi.getArtistAlbums(req.params.artistId)
+  .then(function(data) {
+    res.render('albums', {data})
+  }, function(err) {
+    console.error(`This error is: ${err}`);
+  });
+});
+
+// Obtener las pistas del album
+app.get('/tracks/:albumId', (req, res) => {
 
 });
