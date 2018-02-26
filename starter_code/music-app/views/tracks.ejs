@@ -4,8 +4,9 @@
 <% data.body.items.forEach((track) => { %>
   <li> <%= track.name %>
     <% if (track.preview_url !==null) { %>
-      <audio src="<%= track.preview_url %>" type="">
-      <p> No hay una pista de vista previa para esta canción. </p>
+      <audio controls="controls">
+        <source src="<%= track.preview_url %>" type="">
+        <p> No hay una pista de vista previa para esta canción. </p>
       </audio>
     <% } else { %>
       <p> No puedes escuchar la vista previa de esta canción. </p>
