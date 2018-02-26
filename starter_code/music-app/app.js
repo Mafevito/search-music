@@ -11,7 +11,7 @@ app.set("view engine", "ejs");
 
 // Server Started
 app.listen(3000, () => {
-  console.log('My first app listening on port 3000!');
+  console.log('My App listening on port 3000!');
 });
 
 // SpotifyApi
@@ -58,5 +58,10 @@ app.get('/albums/:artistId', (req, res) => {
 
 // Obtener las pistas del album
 app.get('/tracks/:albumId', (req, res) => {
-
+  spotifyApi.getAlbumTracks(req.params.albumId)
+  .then(function(data) {
+    res.render('tracks', {data})
+  }, function(err) {
+    console.log(`This error is: ${err}`);
+  });
 });
