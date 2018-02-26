@@ -44,3 +44,7 @@ app.post('/artists', (req, res, next) => {
     console.log(`This error is: ${err}`);
   });
 });
+
+app.get('/albums/:artistId', (req, res) => {
+
+});

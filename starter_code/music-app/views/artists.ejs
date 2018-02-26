@@ -1,0 +1,21 @@
+<% if (data.body.artists.items.length === 0 ) { %>
+  <p>Lo siento, no se ha encontrado ningún artista que coincida con tu busqueda.</p>
+<% } else { %>
+  <div>
+    <% data.body.artists.items.forEach((artist) => { %>
+      <div>
+        <div>
+          <% if(artist.images.length > 0) { %>
+            <img class="" src="<%= artist.images[0].url %>" alt="<%= artist.name %>">
+          <% } else {%>
+            <img class="" src="/images/blankrecord.jpg" alt="<%= artist.name %>">
+          <% } %>
+          <div class="">
+            <h2> <%= artist.name %> </h2>
+            <p> <a href="/albums/<% artist.id %>" class="">Ver albumes</a></p>
+          </div>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+<% } %>
