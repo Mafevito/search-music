@@ -1,0 +1,25 @@
+body {
+  height: 100%;
+}
+
+.wrap-background {
+  background-image: url(/images/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  padding-top: 20%;
+  text-align: center;
+}
+
+.wrap-background > h1 {
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.wrap-background > input {
+  padding: 10px;
+}
+
+.wrap-background > input:nth-child(2) {
+  width: 25%;
+}

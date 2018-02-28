@@ -8,7 +8,7 @@
           <% if(album.images.length > 0) { %>
             <img class="" src="<%= album.images[0].url %>" alt="<%= album.name %>">
           <% } else { %>
-            <img class="" src="" alt="<%= album.name %>">
+            <img class="" src="/images/noimg.jpg" alt="<%= album.name %>">
           <% } %>
           <div class="">
             <h2> <%= album.name %> </h2>

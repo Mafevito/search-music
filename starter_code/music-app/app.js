@@ -1,13 +1,16 @@
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
+const expressLayouts = require('express-ejs-layouts');
 const morgan = require('morgan');
 const SpotifyWebApi = require('spotify-web-api-node');
+const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.set('layout', 'layouts/main-layout')
+app.use(express.static('public'));
+app.use(expressLayouts);
+app.set('layout', 'layouts/main-layout');
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Server Started
 app.listen(3000, () => {
@@ -47,7 +50,7 @@ app.post('/artists', (req, res, next) => {
 });
 
 // Obtener el album de un determinado artista
-app.get('/albums/:artistId', (req, res) => {
+app.get('/albums/:artistId', (req, res, next) => {
   spotifyApi.getArtistAlbums(req.params.artistId)
   .then(function(data) {
     res.render('albums', {data})
@@ -57,7 +60,7 @@ app.get('/albums/:artistId', (req, res) => {
 });
 
 // Obtener las pistas del album
-app.get('/tracks/:albumId', (req, res) => {
+app.get('/tracks/:albumId', (req, res, next) => {
   spotifyApi.getAlbumTracks(req.params.albumId)
   .then(function(data) {
     res.render('tracks', {data})
