@@ -1,5 +1,6 @@
 body {
   height: 100%;
+  margin: 0 auto;
 }
 
 .wrap-background {
@@ -21,5 +22,28 @@ body {
 }
 
 .wrap-background > input:nth-child(2) {
-  width: 25%;
+  width: 30%;
+}
+
+.row {
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+
+h1 {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.row .card {
+  height: 100%;
+}
+
+.card img {
+  height: 80%;
+}
+
+.row .col-sm-4 {
+  margin-bottom: 50px;
 }

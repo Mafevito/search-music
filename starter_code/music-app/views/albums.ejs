@@ -1,18 +1,18 @@
 <% if (data.body.items.length === 0) { %>
   <p> No se han encontrado albumes.</p>
 <% } else { %>
-  <div class="">
+  <div class="row">
     <% data.body.items.forEach((album) => { %>
-      <div class="">
-        <div class="">
+      <div class="col-sm-4">
+        <div class="card">
           <% if(album.images.length > 0) { %>
-            <img class="" src="<%= album.images[0].url %>" alt="<%= album.name %>">
+            <img class="card-img-top" src="<%= album.images[0].url %>" alt="<%= album.name %>">
           <% } else { %>
-            <img class="" src="/images/noimg.jpg" alt="<%= album.name %>">
+            <img class="card-img-top" src="/images/noimg.jpg" alt="<%= album.name %>">
           <% } %>
-          <div class="">
-            <h2> <%= album.name %> </h2>
-            <p> <a href="/tracks/<%= album.id %>" class="">Ver canción</a></p>
+          <div class="card-body">
+            <h2 class="card-title"> <%= album.name %> </h2>
+            <p class="card-title"> <a href="/tracks/<%= album.id %>" class="btn btn-dark">Ver canción</a></p>
           </div>
         </div>
       </div>

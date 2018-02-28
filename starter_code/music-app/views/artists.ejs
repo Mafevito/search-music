@@ -1,18 +1,19 @@
 <% if (data.body.artists.items.length === 0 ) { %>
   <p>Lo siento, no se ha encontrado ningún artista que coincida con tu busqueda.</p>
 <% } else { %>
-  <div>
+  <h1>Resultados en base a tu busqueda...</h1>
+  <div class="row">
     <% data.body.artists.items.forEach((artist) => { %>
-      <div>
-        <div>
+      <div class="col-sm-4">
+        <div class="card">
           <% if(artist.images.length > 0) { %>
-            <img class="" src="<%= artist.images[0].url %>" alt="<%= artist.name %>">
+            <img class="card-img-top" src="<%= artist.images[0].url %>" alt="<%= artist.name %>">
           <% } else { %>
-            <img class="" src="/images/noimg.jpg" alt="<%= artist.name %>">
+            <img class="card-img-top" src="/images/noimg.jpg" alt="<%= artist.name %>">
           <% } %>
-          <div class="">
-            <h2> <%= artist.name %> </h2>
-            <p> <a href="/albums/<%= artist.id %>" class="">Ver albumes</a></p>
+          <div class="card-body">
+            <h2 class="card-title"> <%= artist.name %> </h2>
+            <p class="card-text"> <a href="/albums/<%= artist.id %>" class="btn btn-dark">Ver albumes</a></p>
           </div>
         </div>
       </div>
