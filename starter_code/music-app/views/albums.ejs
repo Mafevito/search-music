@@ -1,7 +1,8 @@
 <% if (data.body.items.length === 0) { %>
   <p> No se han encontrado albumes.</p>
 <% } else { %>
-  <div class="row">
+  <h1> Albunes</h1>
+  <div class="row row-album">
     <% data.body.items.forEach((album) => { %>
       <div class="col-sm-4">
         <div class="card">
@@ -12,7 +13,7 @@
           <% } %>
           <div class="card-body">
             <h2 class="card-title"> <%= album.name %> </h2>
-            <p class="card-title"> <a href="/tracks/<%= album.id %>" class="btn btn-dark">Ver canción</a></p>
+            <p class="card-title"> <a href="/tracks/<%= album.id %>" class="">Ver canción</a></p>
           </div>
         </div>
       </div>

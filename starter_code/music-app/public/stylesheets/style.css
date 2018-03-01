@@ -25,9 +25,11 @@ body {
   width: 30%;
 }
 
-.row {
+.row{
   max-width: 1000px;
   margin: 0 auto;
+  margin-left: 0;
+  margin-right: 0;
   border: 1px solid red;
 }
 
@@ -46,4 +48,8 @@ h1 {
 
 .row .col-sm-4 {
   margin-bottom: 50px;
+}
+
+audio {
+  float: right;
 }
